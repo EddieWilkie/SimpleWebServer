@@ -1,0 +1,62 @@
+Client-Server Program
+
+---------------v0.1----------------------
+Version 0.1:
+Simple representation of a client-server model. 
+The client and server is setup using HOST: 127.0.0.1 and PORT: 6100.
+The client is able to send and receive a string message to and from the server.
+At this time there is only two classes: Client and Server.
+
+---------------v0.2----------------------
+Version 0.2:
+This version aims to shape v0.1 more towards the ace2 spec by being able to send
+an object from the Server to the client using the ObjectInput and Output stream of the socket.
+The client can now send a string and receive an object in return.
+
+The Message interface and MessageImpl class is now created to calculate the character and digit counts of the string
+and to send the MessageImpl object back to the client.
+
+---------------v0.3----------------------
+Version 0.3:
+Started coding the setCounts() method which sets the charCount and digitCount variables.
+The getter methods of these variables are then called in by the client.
+
+Now the client can send a String message to the server and the Server now creates the MessageImpl object and calls the 
+setCounts() method and sends the Object to the socket.
+The client now recieves the object through the socket using the ObjectInputStream. 
+The Object must be casted as type Message and then the client prints the char and digit count of the object.
+
+---------------v0.4----------------------
+Version 0.4: Multithreading
+In this version multithreading was introduced so the server can create mutliple threads to deal with multiple clients.
+Instead of creating and sending the message object in the server it is now moved to the run method in the 
+new class called ServerThread. This class implements Runnable and is used as a Thread.
+
+---------------v0.5----------------------
+Version 0.5: Thread Pools
+Attempting the bonus mark for implementing thread pools.
+Decided on using a fixed sized thread pool so I can demonstrate how the other threads are put into a queue to wait until
+there is room in the pool.
+
+---------------v0.6----------------------
+Version 0.6: Documentation
+This version is focused on documentation. 
+
+---------------v0.7----------------------
+Version 0.7: Testing
+
+Finding it difficult to come up with testing strategies for my design this is due to not having enough methods in my Classes
+So this is now a total re-construction of my Client-Server program to make it more OO and method based. 
+Started by removing the main method from both classes and rearranging it into new methods.
+
+---------------v0.8----------------------
+Version 0.8: JavaDoc & Testing
+
+In this version the focus is on java documentation and JUnit testing.
+The jUnit testing tests a server and multiple clients and also the Message class. 
+Covering over 80% for the Client and ServerThread class.
+new Run Methods have been created in both server and Client to create threads when testing.
+---------------v1.0----------------------
+Version 1.0: Final design + GUI
+Finshed the final touches on the ACE and I'm now thinking of creating a simple GUI to represent the 
+client server model.
